@@ -6,5 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  title = 'TODO';
+
+  inputItem = '';
+  todos = ['123', '3453'];
+
+  addTodo(){
+    this.todos.push(this.inputItem);
+    this.inputItem = '';
+  }
+
+  removeTodo(idx){
+    this.todos.splice(idx, 1);
+  }
 }

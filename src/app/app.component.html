@@ -1,3 +1,13 @@
 <h1>
   {{title}}
 </h1>
+<div>
+  <input type="text" [(ngModel)]='inputItem'>
+  <button (click)="addTodo()">INPUT</button>
+</div>
+<ul>
+  <li *ngFor="let todo of todos; let idx = index">
+    <span (click)="removeTodo(idx)" class="removeBtn">X</span>
+    {{todo}}
+  </li>
+</ul>
