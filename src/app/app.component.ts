@@ -9,14 +9,35 @@ export class AppComponent {
   title = 'TODO';
 
   inputItem = '';
-  todos = ['123', '3453'];
+  selected = '';
+  todos = [];
+  todo = {};
 
   addTodo(){
-    this.todos.push(this.inputItem);
+    this.todo = {
+      inputValue: this.inputItem,
+      selected: false
+    }
+    this.todos.push(this.todo);
     this.inputItem = '';
   }
 
   removeTodo(idx){
     this.todos.splice(idx, 1);
+  }
+
+  checkValue(event: any, index: number){
+    let element = document.getElementsByName("todoItem")[index];
+    if(event.target.checked){
+      element.classList.add("deleted");
+      this.todos[index].selected = true;
+    } else{
+      element.classList.remove("deleted");
+      this.todos[index].selected = false;
+    }
+  }
+
+  cleanSeleted(){
+    this.todos = this.todos.filter(todo => (todo.selected == false));
   }
 }

@@ -7,7 +7,9 @@
 </div>
 <ul>
   <li *ngFor="let todo of todos; let idx = index">
+    <input type="checkbox" (change)="checkValue($event, idx)">
     <span (click)="removeTodo(idx)" class="removeBtn">X</span>
-    {{todo}}
+    <span name="todoItem">{{todo.inputValue}}</span>
   </li>
 </ul>
+<button (click)="cleanSeleted()">勾選刪除</button>

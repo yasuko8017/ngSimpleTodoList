@@ -1,3 +1,7 @@
 .removeBtn{
     color: red;
 }
+
+.deleted{
+    text-decoration:line-through;
+}
